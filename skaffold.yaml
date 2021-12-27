@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: gateway-service
+build:
+  artifacts:
+  - image: apaspxp/gateway-service
+    buildpacks:
+      builder: paketobuildpacks/builder:base
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml
